@@ -1,3 +1,7 @@
+# @title Prompt Manager
+
+# prompt_manager.py: Module to manage loading and composing prompt templates from Google Docs.
+
 from typing import List, Dict, Any
 from jinja2 import Environment, BaseLoader
 import yaml
@@ -5,6 +9,11 @@ import json
 from google_doc import GoogleDoc
 
 class PromptManager:
+    """
+    The PromptManager class handles loading and rendering prompt templates from Google Docs.
+    It uses Jinja2 templates to render prompts with provided context variables.
+    """
+
     def __init__(self):
         self.env = Environment(loader=BaseLoader())
         self.prompt_cache = {}

@@ -1,13 +1,18 @@
-from typing import Dict, Any, List, Callable, Optional
-from google.colab import drive
+# @title Chain Manager
+
+# chain_manager.py: Module to manage the execution of chains defined in Google Docs.
+
+from typing import Dict, Any, List, Callable
 import yaml
 import json
-from pathlib import Path
 
 DEBUG = False
 
 class ChainManager:
-    """Manages execution of chains defined in Google Docs"""
+    """
+    The ChainManager class manages the execution of chains defined in Google Docs.
+    It loads chain configurations, processes each step, and maintains the execution context.
+    """
 
     STEP_FUNCTIONS: Dict[str, Callable] = {}
 
@@ -27,7 +32,7 @@ class ChainManager:
         self.context = {}
 
     def load_chain(self, doc_url: str):
-        """Load chain configuration from Google Doc URL"""
+        """Load chain configuration from Google Doc URL."""
         self.gdoc = GoogleDoc(doc_url)
         content = self.gdoc.read_content()
 
@@ -54,7 +59,6 @@ class ChainManager:
 
                 self.steps.append({
                     'name': step_config['name'],
-                    'input_key': step_config.get('input_key'),
                     'output_key': step_config.get('output_key'),
                     'step_function': step_config['step_function'],
                     'prompt_templates': urls
@@ -74,7 +78,6 @@ class ChainManager:
             func = self.STEP_FUNCTIONS[step['step_function']]
             if DEBUG:
                 print(f"Executing step: {step['name']}")
-                print(f"Input key: {step['input_key']}")
                 print(f"Output key: {step['output_key']}")
                 print(f"Step function: {step['step_function']}")
                 print(f"Prompt templates: {step['prompt_templates']}")
@@ -83,10 +86,8 @@ class ChainManager:
                 prompt_templates=step.get('prompt_templates', []),
                 debug=self.debug
             )
-
             if step.get('output_key'):
                 self.add_to_context(step['output_key'], result)
-
         return self.context
 
 @ChainManager.register_step_function("process_with_llm")
@@ -111,8 +112,6 @@ if __name__ == "__main__":
 
         chain_manager.add_to_context("text_to_analyze", "Artificial intelligence has transformed numerous industries in recent years. From healthcare to finance, AI systems are automating processes, improving decision-making, and uncovering insights from vast amounts of data. While concerns about AI safety and ethics persist, the technology continues to advance rapidly. Organizations must carefully balance innovation with responsible development practices to ensure AI benefits society as a whole.")
         chain_manager.add_to_context("tone", "Academic")
-
-        # print(json.dumps(chain_manager.get_context(), indent=2))
 
         result = chain_manager.execute()
         print("\nExecution completed. Final context:")

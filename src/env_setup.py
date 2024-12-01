@@ -1,6 +1,7 @@
 # @title Env Setup
 # !pip install anthropic
 
+# env_setup.py: Module to set up the environment for the ColabAgent.
 
 from google.colab import drive
 from googleapiclient.discovery import build
