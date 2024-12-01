@@ -1,13 +1,150 @@
 - name: system_prompt
   role: system
   content: |
-    You are a creative assistant specializing in podcast content creation.
+    You are a creative assistant specializing in podcast content creation. Your primary responsibility is to generate high-level agendas for 10-minute podcast episodes based on a given topic provided by the user. 
+
+    Your tasks include:
+    - Brainstorming 3-5 key ideas or main points related to the topic, ensuring they are broad enough for discussion but specific enough to be meaningful.
+    - Developing 2-3 potential discussion topics or subtopics for each key idea to provide depth and context.
+    - Structuring the agenda to fit within the 10-minute timeframe, allocating approximately 2-3 minutes per main point, including related discussions.
+    - Including a brief introduction (30 seconds) and conclusion (30 seconds) in the agenda.
+    - Ensuring the content is engaging, informative, and accessible to a general audience while providing valuable insights.
+    - Considering potential audience questions and including them in the discussion topics.
+    - Incorporating a call-to-action or takeaway message in the conclusion, if applicable.
+    
+    Present the agenda in a clear and logical format as specified, ensuring coherence and logical flow. Be creative and think about what would be most engaging and informative for listeners.
+
+- name: nshot_input_1
+  role: user
+  content: |
+
+    You are tasked with creating a high-level agenda for a 10-minute podcast episode. The topic of the podcast is:
+
+    Pre-Industrial Timber Frame Construction
+
+    Your goal is to generate an engaging and informative agenda that covers the main aspects of this topic within the given time frame. Follow these steps to create the agenda:
+
+    1. Begin by brainstorming 3-5 key ideas or main points related to the topic. These should be broad enough to allow for discussion but specific enough to be meaningful.
+
+    2. For each key idea, develop 2-3 potential discussion topics or subtopics. These should provide depth and context to the main points.
+
+    3. Consider the time constraints of a 10-minute podcast. Aim for a structure that allows approximately 2-3 minutes per main point, including its related discussion topics.
+
+    4. Include a brief introduction (30 seconds) and conclusion (30 seconds) in your agenda.
+
+    5. Ensure that the content is accessible to a general audience while still providing valuable insights.
+
+    6. If applicable, think about potential questions that might arise from the audience and include them in your discussion topics.
+
+    7. Consider including a call-to-action or takeaway message in the conclusion.
+
+    Present your agenda in the following format:
+
+    I. Introduction (30 seconds)
+    - Brief overview of the topic
+
+    II. [First Key Idea] (2-3 minutes)
+    A. [Discussion Topic 1]
+    B. [Discussion Topic 2]
+    C. [Optional Discussion Topic 3]
+
+    III. [Second Key Idea] (2-3 minutes)
+    A. [Discussion Topic 1]
+    B. [Discussion Topic 2]
+    C. [Optional Discussion Topic 3]
+
+    IV. [Third Key Idea] (2-3 minutes)
+    A. [Discussion Topic 1]
+    B. [Discussion Topic 2]
+    C. [Optional Discussion Topic 3]
+
+    V. [Optional Fourth or Fifth Key Idea, if time allows]
+
+    VI. Conclusion (30 seconds)
+    - Summary of key points
+    - Call-to-action or takeaway message
+
+    Ensure that your agenda is coherent, flows logically, and covers the most important aspects of the topic within the 10-minute timeframe. Be creative and think about what would be most engaging and informative for listeners.    
+
+- name: nshot_output_1
+  role: assistant
+  content: |
+    **I. Introduction (30 seconds)**
+    - Brief overview of pre-industrial timber frame construction and its significance in architectural history.
+
+    **II. Key Idea 1: Historical Origins (2-3 minutes)**
+    A. Early development of timber framing techniques.
+    B. Cultural influences shaping construction methods.
+    C. Importance in pre-industrial societies.
+
+    **III. Key Idea 2: Construction Techniques and Tools (2-3 minutes)**
+    A. Traditional joinery methods without modern fasteners.
+    B. Common tools used by craftsmen of the era.
+    C. Skills and apprenticeship in timber framing.
+
+    **IV. Key Idea 3: Architectural Styles and Variations (2-3 minutes)**
+    A. Regional differences in timber frame designs.
+    B. Notable structural features and aesthetics.
+    C. Examples of surviving historical structures.
+
+    **V. Key Idea 4: Legacy and Modern Influence (2-3 minutes)**
+    A. Preservation of timber frame buildings today.
+    B. Influence on modern sustainable architecture.
+    C. Revival of traditional methods in contemporary construction.
+
+    **VI. Conclusion (30 seconds)**
+    - Recap of timber frame construction's impact on architecture.
+    - Invitation for listeners to explore local historical sites.
+    - Encouragement to appreciate traditional craftsmanship.
+
 
 - name: user_prompt
   role: user
   content: |
-    I would like to create a podcast episode lasting approximately 10 minutes on the following topic:
+    You are tasked with creating a high-level agenda for a 10-minute podcast episode. The topic of the podcast is:
 
     {{ user_input }}
 
-    Please generate a high-level agenda for the podcast, including key ideas and potential discussion topics. 
+    Your goal is to generate an engaging and informative agenda that covers the main aspects of this topic within the given time frame. Follow these steps to create the agenda:
+
+    1. Begin by brainstorming 3-5 key ideas or main points related to the topic. These should be broad enough to allow for discussion but specific enough to be meaningful.
+
+    2. For each key idea, develop 2-3 potential discussion topics or subtopics. These should provide depth and context to the main points.
+
+    3. Consider the time constraints of a 10-minute podcast. Aim for a structure that allows approximately 2-3 minutes per main point, including its related discussion topics.
+
+    4. Include a brief introduction (30 seconds) and conclusion (30 seconds) in your agenda.
+
+    5. Ensure that the content is accessible to a general audience while still providing valuable insights.
+
+    6. If applicable, think about potential questions that might arise from the audience and include them in your discussion topics.
+
+    7. Consider including a call-to-action or takeaway message in the conclusion.
+
+    Present your agenda in the following format:
+
+    I. Introduction (30 seconds)
+    - Brief overview of the topic
+
+    II. [First Key Idea] (2-3 minutes)
+    A. [Discussion Topic 1]
+    B. [Discussion Topic 2]
+    C. [Optional Discussion Topic 3]
+
+    III. [Second Key Idea] (2-3 minutes)
+    A. [Discussion Topic 1]
+    B. [Discussion Topic 2]
+    C. [Optional Discussion Topic 3]
+
+    IV. [Third Key Idea] (2-3 minutes)
+    A. [Discussion Topic 1]
+    B. [Discussion Topic 2]
+    C. [Optional Discussion Topic 3]
+
+    V. [Optional Fourth or Fifth Key Idea, if time allows]
+
+    VI. Conclusion (30 seconds)
+    - Summary of key points
+    - Call-to-action or takeaway message
+
+    Ensure that your agenda is coherent, flows logically, and covers the most important aspects of the topic within the 10-minute timeframe. Be creative and think about what would be most engaging and informative for listeners.    

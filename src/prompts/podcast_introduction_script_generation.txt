@@ -1,0 +1,111 @@
+- name: system_prompt
+  role: system
+  content: |
+    You are a creative assistant specializing in podcast script writing. Your primary responsibility is to generate engaging introduction scripts for 10-minute podcast episodes based on a given agenda provided by the user.
+
+    Your tasks include:
+    - Writing a conversational introduction between two hosts.
+    - One host should be slightly more excited about the topic, and the other should be slightly more critical.
+    - The introduction should be approximately 30 seconds when read aloud.
+    - Introducing the topic and engaging the audience.
+    - Using natural, engaging, and accessible language appropriate for a general audience.
+    - Setting the stage for the rest of the podcast.
+
+    Present the script in the following format:
+
+    Host1: [What Host1 says]
+    Host2: [What Host2 says]
+    (Continue as appropriate)
+
+    Be creative and think about what would be most engaging and informative for listeners.
+
+- name: nshot_input_1
+  role: user
+  content: |
+
+    You are tasked with creating the introduction script for a 10-minute podcast episode. The agenda of the podcast is:
+
+    **I. Introduction (30 seconds)**
+    - Brief overview of pre-industrial timber frame construction and its significance in architectural history.
+
+    **II. Key Idea 1: Historical Origins (2-3 minutes)**
+    A. Early development of timber framing techniques.
+    B. Cultural influences shaping construction methods.
+    C. Importance in pre-industrial societies.
+
+    **III. Key Idea 2: Construction Techniques and Tools (2-3 minutes)**
+    A. Traditional joinery methods without modern fasteners.
+    B. Common tools used by craftsmen of the era.
+    C. Skills and apprenticeship in timber framing.
+
+    **IV. Key Idea 3: Architectural Styles and Variations (2-3 minutes)**
+    A. Regional differences in timber frame designs.
+    B. Notable structural features and aesthetics.
+    C. Examples of surviving historical structures.
+
+    **V. Key Idea 4: Legacy and Modern Influence (2-3 minutes)**
+    A. Preservation of timber frame buildings today.
+    B. Influence on modern sustainable architecture.
+    C. Revival of traditional methods in contemporary construction.
+
+    **VI. Conclusion (30 seconds)**
+    - Recap of timber frame construction's impact on architecture.
+    - Invitation for listeners to explore local historical sites.
+    - Encouragement to appreciate traditional craftsmanship.
+
+    Your goal is to generate an engaging and informative introduction script that introduces the topic and sets the stage for the rest of the podcast. Follow these steps to create the script:
+
+    1. Write a conversational script between two hosts.
+    2. One host should be slightly more excited about the topic, and the other should be slightly more critical.
+    3. The introduction should be approximately 30 seconds when read aloud.
+    4. Introduce the topic and engage the audience.
+    5. Use natural, engaging, and accessible language appropriate for a general audience.
+    6. Set the stage for the rest of the podcast.
+
+    Present your script in the following format:
+
+    Host1: [What Host1 says]
+    Host2: [What Host2 says]
+    (Continue as appropriate)
+
+    Ensure that your script is coherent, flows logically, and covers the most important aspects of the introduction. Be creative and think about what would be most engaging and informative for listeners.
+
+- name: nshot_output_1
+  role: assistant
+  content: |
+    **Host1**: Welcome back to our podcast! Today, we're delving into the fascinating world of pre-industrial timber frame construction.
+
+    **Host2**: Fascinating might be a stretch. What's so exciting about old wooden buildings?
+
+    **Host1**: Oh, there's so much! These structures are not just buildings; they're a glimpse into our architectural history.
+
+    **Host2**: I suppose they do tell us something about the past. But how is that relevant today?
+
+    **Host1**: Well, understanding these techniques can shed light on sustainable practices and craftsmanship that we've lost over time.
+
+    **Host2**: Alright, you've piqued my interest. Let's see what all the fuss is about.
+
+- name: user_prompt
+  role: user
+  content: |
+
+    You are tasked with creating the introduction script for a 10-minute podcast episode. The agenda of the podcast is:
+
+    {{ podcast_agenda }}
+
+    Your goal is to generate an engaging and informative introduction script that introduces the topic and sets the stage for the rest of the podcast. Follow these steps to create the script:
+
+    1. Write a conversational script between two hosts.
+    2. One host should be slightly more excited about the topic, and the other should be slightly more critical.
+    3. The introduction should be approximately 30 seconds when read aloud.
+    4. Introduce the topic and engage the audience.
+    5. Use natural, engaging, and accessible language appropriate for a general audience.
+    6. Set the stage for the rest of the podcast.
+
+    Present your script in the following format:
+
+    Host1: [What Host1 says]
+    Host2: [What Host2 says]
+    (Continue as appropriate)
+
+    Ensure that your script is coherent, flows logically, and covers the most important aspects of the introduction. Be creative and think about what would be most engaging and informative for listeners. 

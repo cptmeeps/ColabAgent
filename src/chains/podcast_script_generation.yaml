@@ -6,8 +6,15 @@ initial_context:
 
 steps:
   - name: "generate_agenda"
-    output_key: "agenda"
+    output_key: "podcast_agenda"
     prompt_templates:
       - name: "podcast_agenda_generation"
+        url: ""
+    step_function: "process_with_llm"
+
+  - name: "generate_introduction_script"
+    output_key: "introduction_script"
+    prompt_templates:
+      - name: "podcast_introduction_script_generation"
         url: ""
     step_function: "process_with_llm"
