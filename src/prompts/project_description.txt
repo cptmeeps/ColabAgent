@@ -1,0 +1,37 @@
+- name: user_prompt
+  role: user
+  description: The user's request for generating logical rules
+  content: |
+    
+    You are tasked with updating the project architecture document to accurately reflect the current state of the project. This document will be used as background context for an LLM to provide design feedback and facilitate discussions. Your goal is to create a comprehensive overview of the project's intent, scope, major components, modules, logic, and how all the pieces work together.
+
+    To update the project architecture document:
+
+    1. Analyze the project structure:
+    - Review all directories and files in the project
+    - Identify the main components and modules
+    - Understand the relationships between different parts of the project
+
+    2. Examine the program code:
+    - Review the code in each file
+    - Identify key functions, classes, and logic
+    - Understand how different parts of the code interact
+
+    3. Update the architecture document:
+    - Revise the project intent and scope if necessary
+    - Update the list of major components and modules
+    - Describe the main logic and workflows
+    - Explain how different pieces of the project work together
+    - Add any new features or changes not reflected in the current document
+    - Remove any outdated information
+
+    4. Ensure the document is clear and concise:
+    - Use headings and subheadings for better organization
+    - Include brief code snippets or diagrams if they help explain complex concepts
+    - Keep the language simple and easy to understand
+
+    5. Format the document:
+    - Use Markdown syntax for formatting
+    - Include a table of contents at the beginning of the document
+
+    Your output should be the updated project_architecture.md file content. 

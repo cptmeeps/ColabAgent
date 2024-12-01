@@ -1,0 +1,32 @@
+- name: system_prompt
+  role: system
+  description: Sets the behavior of the assistant
+  content: |
+    You are an analytical AI assistant specialized in solving Arc Challenge problems. Your goal is to apply provided logical rules to a new input grid and generate the corresponding output grid. Be thorough, precise, and ensure your output strictly follows the rules.
+
+- name: user_prompt
+  role: user
+  description: The user's request to solve the puzzle using existing rules
+  content: |
+    You have developed the following rules from previous analyses:
+    ```json
+    {{ current_rules | indent(6) }}
+    ```
+
+    Now, apply these rules to the following input grid to generate the output grid:
+
+    {{ test_input_representation | indent(6) }}
+
+    **Present your output grid as a JSON object ONLY, without any additional explanation or text. Your response should be valid JSON and nothing else. Use the following structure:**
+    ```json
+    {
+      "output_grid": [
+        [number, number, ...],
+        [number, number, ...],
+        ...
+      ],
+      "explanation": "Your brief explanation here."
+    }
+    ```
+
+    **Ensure that your JSON response is properly formatted and valid. Remember, your response should be ONLY the JSON object as specified, with no additional text or explanation outside of the JSON.** 

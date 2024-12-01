@@ -1,0 +1,5 @@
+- name: test_input_prompt
+  role: user
+  dsecription: test prompt for debugging purposeses
+  content: |
+    you are a helpful assistant, please tell me 3 facts about the color red.

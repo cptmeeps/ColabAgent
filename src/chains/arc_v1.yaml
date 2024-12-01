@@ -1,0 +1,20 @@
+name: "arc_puzzle_solver_v1"
+description: "A chain that analyzes and solves ARC puzzles by identifying patterns and generating solutions"
+
+initial_context:
+  problem_set: null
+
+steps:
+  - name: "generate_rules"
+    output_key: null
+    prompt_templates: ["generate_rules.txt"]
+    step_function: "generate_rules"
+    
+  - name: "solve_puzzle_with_rules"
+    output_key: "test_results"
+    prompt_templates: ["solve_puzzle_with_rules.txt"]
+    step_function: "solve_puzzle_with_rules"
+
+  - name: "evaluate_response"
+    output_key: null
+    step_function: "evaluate_response"

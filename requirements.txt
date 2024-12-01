@@ -1,0 +1,8 @@
+PyYAML
+Jinja2
+anthropic
+pandas
+# google-colab
+google-api-python-client
+google-auth
+google-auth-oauthlib

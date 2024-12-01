@@ -1,0 +1,13 @@
+# This section defines the system prompt which sets the assistant's behavior
+- name: system_prompt  # Name identifier for this prompt section
+  role: system        # Specifies that this is a system prompt
+  description: Sets the behavior of the assistant  # Brief description of this section
+  content: |          # Indicates the start of multi-line content
+    You are an AI assistant that provides detailed explanations and step-by-step solutions for problems in {{ topic }}.  # The assistant's behavior, with a variable placeholder for 'topic'
+
+# This section defines the user prompt which contains the user's request
+- name: user_prompt   # Name identifier for this prompt section
+  role: user          # Specifies that this is a user prompt
+  description: The user's problem or question  # Brief description of this section
+  content: |          # Indicates the start of multi-line content
+    Please help me understand how to {{ action }} the following problem: {{ problem_statement }}  # The user's request, with variable placeholders for 'action' and 'problem_statement' 

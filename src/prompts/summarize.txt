@@ -1,0 +1,12 @@
+- name: user_prompt
+  role: user
+  content: |
+    Based on this analysis:
+      {{- analysis | indent(6) }}    
+    
+    Please create a {{ tone }} summary of the original text. Include:
+    - Main themes and key points
+    - Important insights
+    - Relevant conclusions
+    
+    Make sure the tone is consistently {{ tone }}.

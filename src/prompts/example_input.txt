@@ -1,0 +1,11 @@
+- name: system_prompt
+  role: system
+  description: Sets the behavior of the assistant
+  content: |
+    You are a helpful assistant
+
+- name: user_prompt
+  role: user
+  description: The user's request for color facts
+  content: |
+    Tell me 3 facts about the color {{ color }} 

@@ -1,0 +1,17 @@
+name: "basic_analysis_chain"
+description: "A chain that analyzes text and generates a summary"
+
+initial_context:
+  text_to_analyze: null  # This will be populated at runtime
+  tone: null
+
+steps:
+  - name: "initial_analysis"
+    output_key: "analysis"
+    prompt_templates: ["analyze_text.txt"]
+    step_function: "process_with_llm"
+    
+  - name: "generate_summary"
+    output_key: "summary"
+    prompt_templates: ["summarize.txt"]
+    step_function: "process_with_llm"

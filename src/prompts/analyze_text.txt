@@ -1,0 +1,11 @@
+- name: user_prompt
+  role: user
+  content: |
+    Please analyze the following text:
+    
+    {{ text_to_analyze }}
+    
+    Provide a detailed analysis focusing on:
+    - Main themes
+    - Tone and style
+    - Key elements
