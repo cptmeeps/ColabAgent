@@ -1,3 +1,4 @@
+%%capture
 # @title Workbench
 
 # workbench.py: Module to execute multiple chains using a Google
@@ -31,7 +32,7 @@ class Workbench:
 
             if DEBUG:
                 print(f"Executing chain: {chain_url}")
-                print(f"chain_input: {chain_input}")
+                print(f"Input: {chain_input}")
 
             # Create and execute chain
             self.chain_manager = ChainManager()
@@ -43,22 +44,25 @@ class Workbench:
 
             if DEBUG:
                 print(f"Output: {chain_output}")
-            # Prepare results data
+
+            # Append results to output tab
             output_data = {
-                'chain_url': chain_url,
-                'chain_input': chain_input,
+                'chain_url': [chain_url],
+                'chain_input': [chain_input],
                 'chain_output': [chain_output]
             }
+            output_df = pd.DataFrame(output_data)
 
             # Determine the next available row in the output tab
             current_output = self.sheet.get_values('output!A:C')
             next_row = len(current_output) + 1
 
-            # Update the output tab with results
-            range_name = f'output!A{next_row}:C{next_row}'
-            self.sheet.update_values(range_name, [list(output_data.values())])
+            # Update the output tab
+            range_name = 'output!A:C'  # Assumes A:C columns in output tab
+            current_values = [[str(x) for x in row] for _, row in output_df.iterrows()]
+            self.sheet.update_values(range_name, current_values)
 
-if __name__ == "__main__":
-    sheet_url = "https://docs.google.com/spreadsheets/d/1oGhppbHko50B-AR9qGtqtinwIvmQqY1M3iLOExaKm-Q/edit?gid=0#gid=0"
-    workbench = Workbench(sheet_url)
-    workbench.execute_all_chains()
+# if __name__ == "__main__":
+#     sheet_url = "https://docs.google.com/spreadsheets/d/1oGhppbHko50B-AR9qGtqtinwIvmQqY1M3iLOExaKm-Q/edit?gid=0#gid=0"
+#     workbench = Workbench(sheet_url)
+#     workbench.execute_all_chains()

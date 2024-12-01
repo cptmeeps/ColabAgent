@@ -1,3 +1,4 @@
+%%capture
 # @title Prompt Manager
 
 # prompt_manager.py: Module to manage loading and composing prompt templates from Google Docs.
@@ -6,7 +7,6 @@ from typing import List, Dict, Any
 from jinja2 import Environment, BaseLoader
 import yaml
 import json
-from google_doc import GoogleDoc
 
 class PromptManager:
     """
@@ -49,15 +49,14 @@ class PromptManager:
 
         return composed_prompts
 
-if __name__ == "__main__":
-    prompt_manager = PromptManager()
+# if __name__ == "__main__":
+#     prompt_manager = PromptManager()
+#     try:
+#         doc_url = "https://docs.google.com/document/d/1jh1XaWHzg-Wrsqn9xGroUtsqjdMUMPRFMdEaor8X84c/edit?tab=t.0"
+#         template_vars = {"color": "red"}
 
-    try:
-        doc_url = "https://docs.google.com/document/d/1jh1XaWHzg-Wrsqn9xGroUtsqjdMUMPRFMdEaor8X84c/edit?tab=t.0"
-        template_vars = {"color": "red"}
+#         prompts = prompt_manager.compose_prompt([doc_url], template_vars)
+#         print(json.dumps(prompts, indent=2))
 
-        prompts = prompt_manager.compose_prompt([doc_url], template_vars)
-        print(json.dumps(prompts, indent=2))
-
-    except Exception as e:
-        print(f"Error occurred: {str(e)}")
+#     except Exception as e:
+#         print(f"Error occurred: {str(e)}")

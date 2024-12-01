@@ -1,4 +1,5 @@
-# @title Google Doc
+%%capture
+# @title Google Docs
 
 # google_doc.py: Module to interact with the Google Docs API for reading and updating documents.
 
@@ -94,16 +95,17 @@ class GoogleDoc:
             body={'requests': requests}
         ).execute()
 
-if __name__ == "__main__":
-    # Test GoogleDoc functionality
-    doc_url = "https://docs.google.com/document/d/1iuY9x6oBj9LvOaTbGRFkXzxdztPZALGV3Yv0vDkNLgk/edit?tab=t.0"
-    doc = GoogleDoc(doc_url)
-    content = doc.read_content()
-    print("\nContent of the Google Doc:")
-    print(content)
+# if __name__ == "__main__":
 
-    doc.update_content("This is the new content of the document.")
-    print("\nGoogle Doc content has been updated.")
+#     # Test GoogleDoc functionality
+#     doc_url = "https://docs.google.com/document/d/1iuY9x6oBj9LvOaTbGRFkXzxdztPZALGV3Yv0vDkNLgk/edit?tab=t.0"
+#     doc = GoogleDoc(doc_url)
+#     content = doc.read_content()
+#     print("\nContent of the Google Doc:")
+#     print(content)
 
-    doc.append_content("\nThis text was appended to the document.")
-    print("\nAdditional content has been appended to the Google Doc.")
+#     doc.update_content("This is the new content of the document.")
+#     print("\nGoogle Doc content has been updated.")
+
+#     doc.append_content("\nThis text was appended to the document.")
+#     print("\nAdditional content has been appended to the Google Doc.")

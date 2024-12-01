@@ -1,3 +1,4 @@
+%%capture
 # @title Google Drive
 
 # google_drive.py: Module to interact with Google Drive.
@@ -135,20 +136,20 @@ class GoogleDrive:
 
         return results.get('files', [])
 
-if __name__ == "__main__":
-    drive = GoogleDrive()
+# if __name__ == "__main__":
+#     drive = GoogleDrive()
 
-    # Check if ColabAgent folder exists
-    colab_folder_id = drive.directory_exists("ColabAgent")
+#     # Check if ColabAgent folder exists
+#     colab_folder_id = drive.directory_exists("ColabAgent")
 
-    if not colab_folder_id:
-        colab_folder_id = drive.create_directory("ColabAgent")
-        print(f"Created ColabAgent folder with ID: {colab_folder_id}")
-    else:
-        print(f"Found existing ColabAgent folder with ID: {colab_folder_id}")
+#     if not colab_folder_id:
+#         colab_folder_id = drive.create_directory("ColabAgent")
+#         print(f"Created ColabAgent folder with ID: {colab_folder_id}")
+#     else:
+#         print(f"Found existing ColabAgent folder with ID: {colab_folder_id}")
 
-    # List files in ColabAgent directory
-    files = drive.get_files_in_directory(colab_folder_id)
-    print("\nFiles in ColabAgent folder:")
-    for file in files:
-        print(f"- {file['name']} ({file['id']})")
+#     # List files in ColabAgent directory
+#     files = drive.get_files_in_directory(colab_folder_id)
+#     print("\nFiles in ColabAgent folder:")
+#     for file in files:
+#         print(f"- {file['name']} ({file['id']})")

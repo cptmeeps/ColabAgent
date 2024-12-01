@@ -1,3 +1,4 @@
+%%capture
 # @title Google Sheet
 
 # google_sheet.py: Module to interact with the Google Sheets API for reading and updating sheets.
@@ -5,7 +6,7 @@
 import pandas as pd
 import re
 from urllib.parse import parse_qs, urlparse
-from typing import Dict, Any, List
+from typing import Dict, Any
 from googleapiclient.discovery import build
 from google.colab import auth
 
@@ -87,10 +88,10 @@ class GoogleSheet:
         ).execute()
         return result.get('values', [])
 
-if __name__ == "__main__":
-    # Test GoogleSheet functionality
-    sheet_url = "https://docs.google.com/spreadsheets/d/1Tarn_9Hou5HVY8nxY7ox84mIvjUFUl9sQKNY4GpU_7g/edit?gid=61014510#gid=61014510"
-    sheet = GoogleSheet(sheet_url)
-    df = sheet.read_to_dataframe()
-    print("First few rows of the Google Sheet:")
-    print(df.head())
+# if __name__ == "__main__":
+#     # Test GoogleSheet functionality
+#     sheet_url = "https://docs.google.com/spreadsheets/d/1Tarn_9Hou5HVY8nxY7ox84mIvjUFUl9sQKNY4GpU_7g/edit?gid=61014510#gid=61014510"
+#     sheet = GoogleSheet(sheet_url)
+#     df = sheet.read_to_dataframe()
+#     print("First few rows of the Google Sheet:")
+#     print(df.head())

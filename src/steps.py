@@ -1,3 +1,4 @@
+%%capture
 # @title Steps
 
 # steps.py: Module to define step functions for chains.

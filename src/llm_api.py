@@ -1,3 +1,4 @@
+%%capture
 # @title LLM API
 
 # llm_api.py: Module providing an abstract base class for LLM providers and an implementation for Anthropic's API.
@@ -99,17 +100,17 @@ class AnthropicProvider(LLMProvider):
         """Extract text from the LLM response."""
         return response.content[0].text
 
-if __name__ == "__main__":
-    provider = AnthropicProvider()
-    prompt_dicts = [
-        {
-            "role": "system",
-            "content": "You are a helpful AI assistant. Be concise."
-        },
-        {
-            "role": "user",
-            "content": "Tell me a short story about a robot."
-        }
-    ]
-    response = provider.process_prompt(prompt_dicts)
-    print(response)
+# if __name__ == "__main__":
+#     provider = AnthropicProvider()
+#     prompt_dicts = [
+#         {
+#             "role": "system",
+#             "content": "You are a helpful AI assistant. Be concise."
+#         },
+#         {
+#             "role": "user",
+#             "content": "Tell me a short story about a robot."
+#         }
+#     ]
+#     response = provider.process_prompt(prompt_dicts)
+#     print(response)

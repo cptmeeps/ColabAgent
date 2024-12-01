@@ -1,3 +1,4 @@
+%%capture
 # @title Chain Manager
 
 # chain_manager.py: Module to manage the execution of chains defined in Google Docs.
@@ -100,22 +101,23 @@ def process_with_llm(
     composed_prompts = chain.prompt_manager.compose_prompt(prompt_templates, context)
     return chain.llm_provider.process_prompt(composed_prompts)
 
-if __name__ == "__main__":
-    chain_manager = ChainManager(debug=True)
+# if __name__ == "__main__":
+#     pass
+#     chain_manager = ChainManager(debug=True)
 
-    try:
-        doc_url = "https://docs.google.com/document/d/1qbCRUQtHObwKKRi53FVg3a1SFLjfOLVjIMlr992KWw4/edit?tab=t.0"
-        chain_manager.load_chain(doc_url)
-        print(f"Loaded chain: {chain_manager.name}")
-        print(f"Description: {chain_manager.description}")
-        print("\nExecuting chain...")
+#     try:
+#         doc_url = "https://docs.google.com/document/d/1qbCRUQtHObwKKRi53FVg3a1SFLjfOLVjIMlr992KWw4/edit?tab=t.0"
+#         chain_manager.load_chain(doc_url)
+#         print(f"Loaded chain: {chain_manager.name}")
+#         print(f"Description: {chain_manager.description}")
+#         print("\nExecuting chain...")
 
-        chain_manager.add_to_context("text_to_analyze", "Artificial intelligence has transformed numerous industries in recent years. From healthcare to finance, AI systems are automating processes, improving decision-making, and uncovering insights from vast amounts of data. While concerns about AI safety and ethics persist, the technology continues to advance rapidly. Organizations must carefully balance innovation with responsible development practices to ensure AI benefits society as a whole.")
-        chain_manager.add_to_context("tone", "Academic")
+#         chain_manager.add_to_context("chain_input", "Artificial intelligence has transformed numerous industries in recent years. From healthcare to finance, AI systems are automating processes, improving decision-making, and uncovering insights from vast amounts of data. While concerns about AI safety and ethics persist, the technology continues to advance rapidly. Organizations must carefully balance innovation with responsible development practices to ensure AI benefits society as a whole.")
+#         chain_manager.add_to_context("tone", "Academic")
 
-        result = chain_manager.execute()
-        print("\nExecution completed. Final context:")
-        print(json.dumps(result, indent=2))
+#         result = chain_manager.execute()
+#         print("\nExecution completed. Final context:")
+#         print(json.dumps(result, indent=2))
 
-    except Exception as e:
-        print(f"Error occurred: {str(e)}")
+#     except Exception as e:
+#         print(f"Error occurred: {str(e)}")
