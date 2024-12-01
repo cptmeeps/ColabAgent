@@ -9,9 +9,6 @@ import anthropic
 import json
 import os
 
-DEBUG = True
-os.environ["ANTHROPIC_API_KEY"] = LLM_API_KEY
-
 class LLMProvider(ABC):
     """
     The LLMProvider abstract base class defines the interface for LLM providers.

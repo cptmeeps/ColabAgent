@@ -1,0 +1,13 @@
+name: "podcast_script_generation_chain"
+description: "A chain that generates a podcast agenda and script based on user input"
+
+initial_context:
+  chain_input: null # will be populated at runtime
+
+steps:
+  - name: "generate_agenda"
+    output_key: "agenda"
+    prompt_templates:
+      - name: "podcast_agenda_generation"
+        url: ""
+    step_function: "process_with_llm"

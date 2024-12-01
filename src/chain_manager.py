@@ -7,8 +7,6 @@ from typing import Dict, Any, List, Callable
 import yaml
 import json
 
-DEBUG = False
-
 class ChainManager:
     """
     The ChainManager class manages the execution of chains defined in Google Docs.

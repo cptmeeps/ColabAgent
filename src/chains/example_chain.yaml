@@ -1,17 +1,22 @@
 name: "basic_analysis_chain"
 description: "A chain that analyzes text and generates a summary"
 
+
 initial_context:
-  text_to_analyze: null  # This will be populated at runtime
-  tone: null
+  tone: Academic
+
 
 steps:
   - name: "initial_analysis"
     output_key: "analysis"
-    prompt_templates: ["analyze_text.txt"]
+    prompt_templates:
+      - name: "analyze_text"
+        url: "https://docs.google.com/document/d/10o8b8gJFHGtD52ip6u1fRELDAaRgS5x7bchRswIkPdM/edit?tab=t.0"
     step_function: "process_with_llm"
     
   - name: "generate_summary"
-    output_key: "summary"
-    prompt_templates: ["summarize.txt"]
+    output_key: "chain_output"
+    prompt_templates:
+      - name: "summarize"
+        url: "https://docs.google.com/document/d/12EFWtewjoXHXoTSu-DothJiRYRHuXxuadbpHJ5iy7Fc/edit?tab=t.0"
     step_function: "process_with_llm"
